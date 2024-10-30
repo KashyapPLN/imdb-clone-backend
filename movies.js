@@ -41,7 +41,7 @@ router.get('/:arrayName', async (req, res) => {
 
         // Query the database
         const movies = await client.db('imbd-clone-app').collection('movies').findOne({ [arrayName]: { $exists: true } });
-
+       
         if (!movies) {
             return res.status(404).json({ error: 'Movies not found for the specified array' });
         }
